@@ -1,5 +1,13 @@
 # The Scripted API Client Gem
 
+Install via RubyGems:
+
+    gem install scripted_client
+
+Or a Gemfile:
+
+    gem 'scripted_client'
+
 In an initializer, set up your account identifier and access token. For example:
 
     # config/initializers/scripted.rb

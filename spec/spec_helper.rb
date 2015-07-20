@@ -6,8 +6,8 @@ require 'scripted_client'
 
 RSpec.configure do |config|
   config.before(:all) do
-    ScriptedClient.env = :dev
-    ScriptedClient.id = '4a7da4c3'
-    ScriptedClient.access_token = '5soiSLVM3Yh-mwRUKbKT'
+    # ScriptedClient.env = :dev
+    # ScriptedClient.id = 'orangutans'
+    # ScriptedClient.access_token = 'make-great-pets'
   end
 end
