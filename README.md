@@ -39,7 +39,7 @@ Next, assign some values for the Prompts on that JobTemplate. Prompts are questi
 | checkbox     | Array                         | Yes                  |
 | array        | Array                         | No                   |
 
-If the prompt has `value_options`, the `value` you pick has to be one of them.
+If the prompt has `value_options` the `value` you pick has to be one of them.
 
 Here's how you might update a couple of prompt values:
 
@@ -55,25 +55,29 @@ Next, you can find an Industry:
     industries = ScriptedClient::Industry.all
     lifestyle = industries.find { |industry| industry.name == 'Lifestyle & Travel' }
 
-Now you can create the job!
+Now you can create the Job!
 
-  job = ScriptedClient::Job.new(
-    topic: 'Top 10 Reasons to Buy an Orangutan',
-    job_template: blog_post,
-    industries: [lifestyle]
-  )
-  job.save
-  # => true
+    job = ScriptedClient::Job.new(
+      topic: 'Top 10 Reasons to Buy an Orangutan',
+      job_template: blog_post,
+      industries: [lifestyle]
+    )
+    job.save
+    # => true
 
-**protip** If `job.save` returns `false`, use `job.errors.full_messages` to see what went wrong.
+**Protip** If `job.save` returns `false` use `job.errors.full_messages` to see what went wrong.
 
 ### Retrieving Jobs
 
-Get all jobs using `ScriptedClient::Job.all`, or be a bit more specific using any of these scopes: `screening`, `writing`, `draft_ready`, `revising`, `final_ready`, `in_progress`, `needs_review`, `accepted`, `rejected`, `finished`. For example:
+Get all jobs using `ScriptedClient::Job.all`, or be a bit more specific using any of these scopes:
+
+    screening writing draft_ready revising final_ready in_progress needs_review accepted rejected finished
+
+For example:
 
     jobs = ScriptedClient::Job.needs_review
 
-There are also scopes on `ScriptedClient::Pitchset`: `open`, `closed`, `requires_action`.
+There are also scopes on Pitchset: `open`, `closed`, `requires_action`.
 
 If the collection has a next page:
 
