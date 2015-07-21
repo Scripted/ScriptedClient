@@ -10,6 +10,6 @@ Gem::Specification.new do |s|
   s.homepage      = 'http://rubygems.org/gems/scripted_client'
   s.license       = 'MIT'
   s.require_paths = ['lib']
-  s.add_runtime_dependency 'activeresource', [">= 4"]
-  s.add_development_dependency 'rspec', ["= 3.3.0"]
+  s.add_runtime_dependency 'activeresource', '~> 4'
+  s.add_development_dependency 'rspec', '= 3.3.0'
 end

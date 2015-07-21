@@ -11,7 +11,7 @@ describe ScriptedClient::Resource do
   end
 
   describe '.define_filter_methods' do
-    before { subject.define_filter_methods('some_filter') }
+    before { subject.define_filter_methods(['some_filter']) }
     it 'defines a filter method' do
       expect(subject).to receive(:all).with(params: { filter: 'some_filter' })
       subject.some_filter
