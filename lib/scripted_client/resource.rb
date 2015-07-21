@@ -1,5 +1,6 @@
 module ScriptedClient
   class Resource < ActiveResource::Base
+    self.format = :json
     self.collection_parser = ScriptedClient::Collection
 
     # Some tasteful meta-programming to define

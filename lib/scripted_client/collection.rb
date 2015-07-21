@@ -6,7 +6,7 @@ module ScriptedClient
     def initialize(parsed = {})
       @elements = parsed['data']
       paging = parsed['paging']
-      @next_page = paging['next_cursor'] if paging['has_next']
+      @next_page = paging['next_cursor'] if paging && paging['has_next']
     end
 
     def next
