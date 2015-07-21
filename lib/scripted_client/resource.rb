@@ -13,5 +13,10 @@ module ScriptedClient
         end
       end
     end
+
+    def self.site
+      super if ScriptedClient.id && ScriptedClient.access_token
+    end
+
   end
 end

@@ -77,7 +77,7 @@ For example:
 
     jobs = ScriptedClient::Job.needs_review
 
-There are also scopes on Pitchset: `open`, `closed`, `requires_action`.
+There are also scopes on Pitchset: `open`, `closed` and `requires_action`.
 
 If the collection has a next page:
 
