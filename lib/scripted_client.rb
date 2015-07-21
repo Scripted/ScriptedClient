@@ -28,7 +28,7 @@ module ScriptedClient
   end
 
   def self.env=(_env)
-    unless [:dev, :sandbox, :production].include?(_env)
+    unless [:development, :sandbox, :production].include?(_env)
       fail "#{ name }.env must be either :sandbox or :production"
     end
     @@env = _env
@@ -42,13 +42,13 @@ module ScriptedClient
       'scripted-sandbox.herokuapp.com'
     when :production
       'api.scripted.com'
-    when :dev
+    when :development
       'localhost:3000'
     end
   end
 
   def self.protocol
-    env == :dev ? 'http' : 'https'
+    env == :development ? 'http' : 'https'
   end
 
   def self.base_url

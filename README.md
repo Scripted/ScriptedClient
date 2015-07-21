@@ -90,6 +90,11 @@ you can retrieve that next page using `next`:
     jobs = ScriptedClient::Job.all
     page_two = jobs.next
 
+If you'd like to review the written content itself, use the `html_contents` method:
+
+    job = ScriptedClient::Job.first
+    job.html_contents
+
 ### Development
 
-From within this directory, `bundle install` and run `rspec` to execute the tests.
+From within this directory, `bundle install` and run `rspec` to execute the tests. If you want to use the gem against a local version of the API, set `ScriptedClient.env = :development`.

@@ -11,5 +11,10 @@ module ScriptedClient
       accepted
       rejected
       finished))
+
+    def html_contents
+      get(:html_contents)['html_contents']
+    end
+
   end
 end
