@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name          = 'scripted_client'
-  s.version       = '0.1.0'
+  s.version       = '0.1.1'
   s.date          = '2015-07-18'
   s.summary       = 'A client to consume the Scripted.com API'
   s.description   = 'Provides a simple wrapper for creating, listing and reviewing Scripted.com Jobs and Pitches.'
