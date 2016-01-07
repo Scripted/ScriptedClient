@@ -1,6 +1,6 @@
 module ScriptedClient
   API_VERSION = 'v1'
-  @@access_token, @@id = nil, nil
+  @@access_token, @@organization_key = nil, nil
   @@env = :sandbox
 
   def self.access_token
@@ -13,14 +13,14 @@ module ScriptedClient
     @@access_token
   end
 
-  def self.id
-    @@id || fail("You must set #{ name }.id")
+  def self.organization_key
+    @@organization_key || fail("You must set #{ name }.organization_key")
   end
 
-  def self.id=(_id)
-    @@id = _id
+  def self.organization_key=(_organization_key)
+    @@organization_key = _organization_key
     reset_resource_site
-    @@id
+    @@organization_key
   end
 
   def self.env
@@ -56,14 +56,15 @@ module ScriptedClient
   end
 
   def self.prefix
-    "/#{ id }/#{ API_VERSION }/"
+    "/#{ organization_key }/#{ API_VERSION }/"
   end
 
   def self.reset_resource_site
-    if @@id && @@access_token
+    if @@organization_key && @@access_token
       ScriptedClient::Resource.site = base_url
       ScriptedClient::Resource.prefix = prefix
-      ScriptedClient::Resource.headers['Authorization'] = "Token token=#{ access_token }"
+      ScriptedClient::Resource.descendants.each(&:setup_prefix)
+      ScriptedClient::Resource.headers['Authorization'] = "Bearer #{ access_token }"
     end
   end
 end

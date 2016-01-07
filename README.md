@@ -10,10 +10,10 @@ Or a Gemfile:
 
     gem 'scripted_client'
 
-In an initializer, set up your account identifier and access token. For example:
+In an initializer, set up your account organization_key and access token. For example:
 
     # config/initializers/scripted.rb
-    ScriptedClient.id = 'orangutan'
+    ScriptedClient.organization_key = 'orangutan'
     ScriptedClient.access_token = 'make-great-pets'
 
 In production, make sure you set the environment to **:production**
@@ -29,7 +29,7 @@ First, find a JobTemplate that you'd like to use:
     templates = ScriptedClient::JobTemplate.all
     blog_post = templates.find { |template| template.name == 'Standard Blog Post' }
 
-Next, assign some values for the Prompts on that JobTemplate. Prompts are question/answer pairs that help guide your writer. They can be one of five kinds: `string[255]` `string[1024]` `radio` `checkbox` `array`. The data type of the `value` that you post will depend on the kind of the Prompt:
+Next, assign some values for the Prompts on that JobTemplate. Prompts are question/answer pairs that help guorganization_keye your writer. They can be one of five kinds: `string[255]` `string[1024]` `radio` `checkbox` `array`. The data type of the `value` that you post will depend on the kind of the Prompt:
 
 | Kind         | Value Type                    | Has `value_options`? |
 |--------------|-------------------------------|----------------------|

@@ -24,14 +24,14 @@ describe ScriptedClient do
     context 'when nil' do
       it 'raises an exception' do
         expect {
-          subject.id
-        }.to raise_error 'You must set ScriptedClient.id'
+          subject.organization_key
+        }.to raise_error 'You must set ScriptedClient.organization_key'
       end
     end
     context 'when set' do
-      before { subject.id = 'dogs' }
+      before { subject.organization_key = 'dogs' }
       it 'returns the token' do
-        expect(subject.id).to eq('dogs')
+        expect(subject.organization_key).to eq('dogs')
       end
     end
   end
@@ -42,7 +42,7 @@ describe ScriptedClient do
         expect(subject.env).to eq(:sandbox)
       end
     end
-    context 'when setting something invalid' do
+    context 'when setting something invalorganization_key' do
       it 'raises an exception' do
         expect {
           subject.env = :bangladesh
@@ -58,16 +58,16 @@ describe ScriptedClient do
   end
 
   describe 'resetting the resource site and prefix' do
-    context 'when id and access_token have been set' do
+    context 'when organization_key and access_token have been set' do
       before do
-        subject.id = 'dogs'
+        subject.organization_key = 'dogs'
         subject.access_token = 'cats'
         subject.env = :production
       end
       it 'sets the site, prefix and headers on ScriptedClient::Resource' do
         expect(ScriptedClient::Resource.site).to eq(URI.parse('https://api.scripted.com'))
         expect(ScriptedClient::Resource.prefix).to eq('/dogs/v1/')
-        expect(ScriptedClient::Resource.headers['Authorization']).to eq('Token token=cats')
+        expect(ScriptedClient::Resource.headers['Authorization']).to eq('Bearer cats')
       end
     end
   end

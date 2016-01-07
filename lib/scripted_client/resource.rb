@@ -15,8 +15,12 @@ module ScriptedClient
     end
 
     def self.site
-      super if ScriptedClient.id && ScriptedClient.access_token
+      super if ScriptedClient.organization_key && ScriptedClient.access_token
     end
+
+    # A hook for any nested resources
+    # (see ScriptedClient::Pitch for implementation)
+    def self.setup_prefix; end
 
   end
 end
